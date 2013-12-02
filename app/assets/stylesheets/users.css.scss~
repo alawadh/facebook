@@ -6,11 +6,16 @@
  border-style:solid;
 }
 #profile{
- background-color:#69F;
+ background-color:#003;
+}
+#prof_header{
+ background-color:#003;
+ border-style:solid;
 }
 table{
+ background-color:#69F;
  border:1px solid black;
- width:100%;
+ width:20%;
 }
 tr, td{
  border:1px solid black;
@@ -18,7 +23,7 @@ tr, td{
 }
 h1{
  color:#093;
- text-align:center;
+ text-align:left;
 }
 h2{
  color:white;
@@ -27,6 +32,11 @@ h2{
 h3{
  color:white;
  text-align:right;
+}
+h4{
+ color: white;
+ text-align:center;
+ font-size:large;
 }
 p{
  color:white;

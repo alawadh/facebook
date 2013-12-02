@@ -3,6 +3,8 @@
 
 #profile
   #header
+    %h4 facebook
+  #prof_header
     %p
       %h2.profile= "Username: #{@user.username}"
     %p
@@ -26,7 +28,7 @@
     %tr
       %td= @user.quotes
   
-  %table{:align => 'right', :'background-color' => '#69F'}
+  %table{:align => 'right'}
     %tr
       %td
         %h3 Friends:
