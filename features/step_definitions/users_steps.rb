@@ -7,3 +7,7 @@ Given /the following users exist/ do |users_table|
   end
   #flunk "Unimplemented"
 end
+
+Given /^I am on the Users home page/ do
+  visit(users_path)
+end

@@ -13,7 +13,7 @@ Background: users have been added to database
   | lhobbs   | Lisa		  | Hobbs	  | 123123	 | 25-Jan-2009 | >.> 	   | <.< 																				   | 
 
 
-  #And  I am on the Users home page
+  And  I am on the Users home page
   
 #Scenario: restrict to users with specific last names
   # enter step(s) to check the 'PG' and 'R' checkboxes
