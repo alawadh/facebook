@@ -1,6 +1,7 @@
 Facebook::Application.routes.draw do
-  resources :users
-
+  
+  
+  match '/users/login(.:format)' => 'users#login', :as => :login
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
