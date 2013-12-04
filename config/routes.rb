@@ -1,8 +1,15 @@
 Facebook::Application.routes.draw do
   
-  resource :users do
-  	match '/login(.:format)' => 'users#login', :as => :login
-  end
+  resources :users
+  
+  #resource :user do
+  #  get '(.:format)' => 'users#index'
+  #	post '/login(.:format)' => 'users#login', :as => :login
+  #	get '/:id/edit(.:format)' => 'users#edit', :as => :edit
+  #	get '/:id(.:format)' => 'users#show', :as => :show
+  #	put '/:id(.:format)' => 'users#update', :as => :update
+  #	delete '/:id(.:format)' => 'users#destroy', :as => :destroy
+  #end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
