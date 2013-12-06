@@ -6,9 +6,9 @@
     %h4 facebook
   #prof_header
     %p
-      %h2.profile= "Username: #{@user.username}"
-    %p
       %h1= "#{@user.first_name} #{@user.last_name}"
+    %p
+      %h2.profile= "Username: #{@user.username}"
 
 
   %table
@@ -28,10 +28,11 @@
     %tr
       %td= @user.quotes
   
-  %table{:align => 'right'}
-    %tr
-      %td
-        %h3 Friends:
+  #friends
+    %table{:float => 'right'}
+      %tr
+        %td 
+          %h2 Friends:
 
   = link_to 'Edit', edit_user_path(@user)
   \|

@@ -5,10 +5,10 @@
  background-color:#003;
  border-style:solid;
 }
-#profile{
+#profile, #users, #new_user{
  background-color:#003;
 }
-#prof_header{
+#prof_header, #user_header, #new_user_header{
  background-color:#003;
  border-style:solid;
 }
@@ -17,9 +17,21 @@ table{
  border:1px solid black;
  width:20%;
 }
-tr, td{
+#users table{
+ text-align:center;
+}
+tr, td, th{
  border:1px solid black;
  width: 20%;
+}
+th h2{
+ text-color:red;
+}
+#friends table{
+ background-color:#69F;
+ border-style: solid;
+ float:right;
+ float:top;
 }
 h1{
  color:#093;
@@ -36,7 +48,7 @@ h3{
 h4{
  color: white;
  text-align:center;
- font-size:large;
+ font-size:xx-large;
 }
 p{
  color:white;
