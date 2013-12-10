@@ -1,7 +1,7 @@
 class CreateUsers < ActiveRecord::Migration
-  def change
+  def up
 	
-      #drop_table :users
+      
 
       create_table :users do |t|
       	t.string :username
@@ -14,6 +14,10 @@ class CreateUsers < ActiveRecord::Migration
 
       	t.timestamps
       end
+  end
+  
+  def down
+	drop_table :users
   end
 
 

@@ -1,4 +1,4 @@
-Given /the following users exist/ do |users_table|
+Given /the following users exist:/ do |users_table|
   users_table.hashes.each do |auser|
   
 	User.create!(auser)
@@ -8,6 +8,6 @@ Given /the following users exist/ do |users_table|
   #flunk "Unimplemented"
 end
 
-Given /^I am on the Users home page/ do
-  visit(users_path)
+Given /^I am on the login page/ do
+  visit(login_path)
 end

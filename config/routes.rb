@@ -1,5 +1,8 @@
 Facebook::Application.routes.draw do
   
+
+  match "users/login(.:format)", :controller => "users", :action => "login", :via => [:get], :as => :login
+  
   resources :users
   
   #resource :user do
