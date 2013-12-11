@@ -29,6 +29,9 @@ tr, td, th{
 th h2{
  text-color:red;
 }
+th {
+ font-size: medium;
+}
 #user_info table{
  background-color:#69F;
  border-style: solid;
@@ -38,11 +41,15 @@ th h2{
  background-color:#69F;
  border-style: solid;
  float:right;
- float:top;
+
 }
-#bottom_links{
- text-align:left;
+footer{
+ align: left;
+ position:absolute;
+ bottom: 0px;
+
 }
+
 .field{
  color:#fff;
  text-align:left;
