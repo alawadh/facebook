@@ -8,6 +8,7 @@ body {
 
 #user_nav_right{
   text-align:right;
+  background-color: red;
 }
 #user_nav_left{
   text-align:left;
