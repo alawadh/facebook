@@ -8,10 +8,16 @@ body {
 
 #user_nav_right{
   text-align:right;
-  background-color: red;
 }
 #user_nav_left{
   text-align:left;
+}
+
+#signup_notice{
+  text-align:left;
+  text-size:large;
+  color:red;
+  background-color: white;
 }
 
 p, ol, ul, td {

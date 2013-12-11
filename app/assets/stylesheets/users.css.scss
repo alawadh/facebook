@@ -29,13 +29,28 @@ tr, td, th{
 th h2{
  text-color:red;
 }
+#user_info table{
+ background-color:#69F;
+ border-style: solid;
+ float:left;
+}
 #friends table{
  background-color:#69F;
  border-style: solid;
  float:right;
  float:top;
 }
-h1, .field{
+#bottom_links{
+ float:left;
+ float:bottom;
+ text-align:left;
+}
+.field{
+ color:#fff;
+ text-align:left;
+ font-size:large;
+}
+h1{
  color:#093;
  text-align:left;
 }
