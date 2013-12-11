@@ -13,23 +13,24 @@ Given /^I am on the login page/ do
 end
 
 When(/^I type into the username field: "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+  fill_in "username", :with => arg1
 end
 
 Then(/^I type into the password field: "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+  fill_in "password", :with => arg1
 end
 
-Then(/^I should be redirected to the profile page$/) do
-  pending # express the regexp above with the code you wish you had
+Then(/^I should get (in)?correct login message$/) do |incorrect|
+
+  if incorrect
+	page.should have_content "Invalid username or password"
+  else page.should have_content "Logged in!"
+  end
+  
 end
 
-Then(/^I should get an incorrect login message$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then(/^I press the log in button$/) do
-  pending # express the regexp above with the code you wish you had
+Then(/^I press "(.*?)"$/) do |arg1|
+  click_button(arg1)
 end
 
 

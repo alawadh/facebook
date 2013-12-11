@@ -14,18 +14,18 @@ Background: users have been added to database
 
 
   And  I am on the login page
+ 
+Scenario: Failed login
+When I type into the username field: "jghosh"
+Then I type into the password field: "123456"
+Then I press "Sign in"
+Then I should get incorrect login message 
   
 Scenario: Successful login
 When I type into the username field: "oalawadh"
 Then I type into the password field: "123456"
-Then I press the log in button
-Then I should be redirected to the profile page
-
-Scenario: Failed login
-When I type into the username field: "jghosh"
-Then I type into the password field: "123456"
-Then I press the log in button
-Then I should get an incorrect login message
+Then I press "Sign in"
+Then I should get correct login message 
 
 #Scenario: all ratings selected
   # see assignment
