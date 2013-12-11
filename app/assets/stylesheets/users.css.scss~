@@ -5,10 +5,10 @@
  background-color:#003;
  border-style:solid;
 }
-#profile, #users, #new_user{
+#profile, #users, #new_user, #login, #form{
  background-color:#003;
 }
-#prof_header, #user_header, #new_user_header{
+#prof_header, #user_header, #new_user_header, #login_header{
  background-color:#003;
  border-style:solid;
 }

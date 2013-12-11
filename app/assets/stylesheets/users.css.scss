@@ -5,7 +5,7 @@
  background-color:#003;
  border-style:solid;
 }
-#profile, #users, #new_user, #login{
+#profile, #users, #new_user, #login, #form{
  background-color:#003;
 }
 #prof_header, #user_header, #new_user_header, #login_header{
@@ -33,7 +33,7 @@ th h2{
  float:right;
  float:top;
 }
-h1{
+h1, .field{
  color:#093;
  text-align:left;
 }
