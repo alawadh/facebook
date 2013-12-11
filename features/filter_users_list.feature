@@ -15,15 +15,17 @@ Background: users have been added to database
 
   And  I am on the login page
   
-#Scenario: restrict to users with specific last names
-  # enter step(s) to check the 'PG' and 'R' checkboxes
-  # enter step(s) to uncheck all other checkboxes
-  # enter step to "submit" the search form on the homepage
-  # enter step(s) to ensure that PG and R movies are visible
-  # enter step(s) to ensure that other movies are not visible
+Scenario: Successful login
+When I type into the username field: "oalawadh"
+Then I type into the password field: "123456"
+Then I press the log in button
+Then I should be redirected to the profile page
 
-#Scenario: no ratings selected
-  # see assignment
+Scenario: Failed login
+When I type into the username field: "jghosh"
+Then I type into the password field: "123456"
+Then I press the log in button
+Then I should get an incorrect login message
 
 #Scenario: all ratings selected
   # see assignment
