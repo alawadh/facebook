@@ -27,15 +27,19 @@
           %h2 Quotes:
       %tr
         %td= @user.quotes
-
+  
   #friends
     %table
       %tr
         %td
           %h2 Friends:
+
+  
+  = link_to 'Edit', edit_user_path(@user)
+  \|
+  = link_to 'Back', users_path
+
   
 
-  %p
-    = link_to 'Edit', edit_user_path(@user)
-    \|
-    = link_to 'Back', users_path
+  
+   

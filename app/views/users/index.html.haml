@@ -9,27 +9,20 @@
       %th Username
       %th First name
       %th Last name
-      %th Password
       %th Birthday
       %th Interests
       %th Quotes
-      %th
-      %th
-      %th
+    
 
     - @users.each do |user|
       %tr
         %td= link_to user.username, user
         %td= user.first_name
         %td= user.last_name
-        %td= user.password
         %td= user.birthday
         %td= user.interests
         %td= user.quotes
-        %td= link_to 'Show', user
-        %td= link_to 'Edit', edit_user_path(user)
-        %td= link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
+        
 
   %br
 
