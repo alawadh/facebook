@@ -28,11 +28,15 @@
       %tr
         %td= @user.quotes
   
-  #friends
-    %table
+  
+  %table
+    - @user.friends.each do |fr|
+      - @fuser = User.find_by_username(fr.friend_username)
       %tr
-        %td
-          %h2 Friends:
+        %td= @fuser.last_name
+        %td= @fuser.first_name
+      %tr
+        
 
   %footer
     = link_to 'Edit', edit_user_path(@user)

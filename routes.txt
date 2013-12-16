@@ -1,0 +1,25 @@
+         log_out GET    /log_out(.:format)                         sessions#destroy
+          log_in GET    /log_in(.:format)                          sessions#new
+         sign_up GET    /sign_up(.:format)                         users#new
+            root        /                                          users#new
+    user_friends GET    /users/:user_id/friends(.:format)          friends#index
+                 POST   /users/:user_id/friends(.:format)          friends#create
+ new_user_friend GET    /users/:user_id/friends/new(.:format)      friends#new
+edit_user_friend GET    /users/:user_id/friends/:id/edit(.:format) friends#edit
+     user_friend GET    /users/:user_id/friends/:id(.:format)      friends#show
+                 PUT    /users/:user_id/friends/:id(.:format)      friends#update
+                 DELETE /users/:user_id/friends/:id(.:format)      friends#destroy
+           users GET    /users(.:format)                           users#index
+                 POST   /users(.:format)                           users#create
+        new_user GET    /users/new(.:format)                       users#new
+       edit_user GET    /users/:id/edit(.:format)                  users#edit
+            user GET    /users/:id(.:format)                       users#show
+                 PUT    /users/:id(.:format)                       users#update
+                 DELETE /users/:id(.:format)                       users#destroy
+        sessions GET    /sessions(.:format)                        sessions#index
+                 POST   /sessions(.:format)                        sessions#create
+     new_session GET    /sessions/new(.:format)                    sessions#new
+    edit_session GET    /sessions/:id/edit(.:format)               sessions#edit
+         session GET    /sessions/:id(.:format)                    sessions#show
+                 PUT    /sessions/:id(.:format)                    sessions#update
+                 DELETE /sessions/:id(.:format)                    sessions#destroy

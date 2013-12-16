@@ -9,6 +9,23 @@ class UsersController < ApplicationController
       format.json { render json: @users }
     end
   end
+  
+  def search
+    #@users = User.find_by_last_name(params[:last_name])
+    #@users = User.where(:lastname => params[:last_name])
+    @users = User.find(:all, :conditions => { :last_name => params[:last_name] })
+    #@user = User.new
+    
+    if params[:search_button]
+		#redirect_to user_path(@users), :notice => "Found the user!"
+	  if @users.length > 0
+		render "search"
+	  else
+	    flash.now.alert = "Search returned no results"
+		render "search"
+	  end
+	end
+  end
 
   def login
     @user = User.new

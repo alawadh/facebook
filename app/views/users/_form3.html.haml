@@ -1,0 +1,24 @@
+#users
+  #header
+    %h4 facebook
+  #user_header
+    %h1 Listing users
+
+    %table
+      %tr
+        %th Username
+        %th First name
+        %th Last name
+        %th Birthday
+        %th Interests
+        %th Quotes
+
+
+      - @users.each do |user|
+        %tr
+          %td= link_to user.username, user
+          %td= user.first_name
+          %td= user.last_name
+          %td= user.birthday
+          %td= user.interests
+          %td= user.quotes
