@@ -30,3 +30,5 @@ user3.friends.create(friend_username: 'oalawadh')
 
 user1.friends.create(friend_username: 'jghosh')
 user1.friends.create(friend_username: 'lhobbs')
+
+user1.friendrequests.create(futurefriend: 'jghosh')

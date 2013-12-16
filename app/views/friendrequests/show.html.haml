@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Futurefriend:
+  = @friendrequest.futurefriend
+%p
+  %b User:
+  = @friendrequest.user
+
+= link_to 'Edit', edit_friendrequest_path(@friendrequest)
+\|
+= link_to 'Back', friendrequests_path

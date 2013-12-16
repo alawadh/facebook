@@ -1,0 +1,21 @@
+%h1 Listing friendrequests
+
+%table
+  %tr
+    %th Futurefriend
+    %th User
+    %th
+    %th
+    %th
+
+  - @friendrequests.each do |friendrequest|
+    %tr
+      %td= friendrequest.futurefriend
+      %td= friendrequest.user
+      %td= link_to 'Show', friendrequest
+      %td= link_to 'Edit', edit_friendrequest_path(friendrequest)
+      %td= link_to 'Destroy', friendrequest, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Friendrequest', new_friendrequest_path

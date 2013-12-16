@@ -29,7 +29,8 @@ class UsersController < ApplicationController
 	if params[:Add]
 	  @user = User.find_by_id(((params["Add"]).first)[0])
 	  #flash.now.alert = @user.id
-	  Friend.add(@user, current_user)
+	  Friendrequest.send(@user, current_user)
+	  flash.now.alert = 'Sent a friends request'
 	  redirect_to user_path(current_user)
 	end
   end
@@ -52,6 +53,23 @@ class UsersController < ApplicationController
 	  Friend.remove(@friend, current_user)
 	  redirect_to user_path(params[:id])
     end
+    
+    if params[:Accept]
+	  @friendreq = Friendrequest.find_by_id(((params["Accept"]).first)[0])
+	  @sendinguser = User.find_by_username(@friendreq.futurefriend)
+	  Friend.add(@sendinguser, current_user)
+	  Friendrequest.remove(@friendreq)
+	  redirect_to user_path(params[:id])
+	  #Friendrequest.send(@friendreq)
+	  #redirect_to user_path(params[:id])
+	end
+
+    if params[:Decline]
+	  @friendreq = Friendrequest.find_by_id(((params["Decline"]).first)[0])
+	  Friendrequest.remove(@friendreq)
+	  redirect_to user_path(params[:id])
+	end	
+		
     
   end
 

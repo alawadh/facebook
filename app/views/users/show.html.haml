@@ -43,7 +43,22 @@
         %td= @fuser.first_name
         - if current_user.id == @user.id
           %td= submit_tag 'Remove', :name => "Remove[#{fr.id}]"
+          
+  - if current_user.id == @user.id        
+    %table
+      %tr
+        %th First name
+        %th Last name
+        %th Accept
+        %th Decline
         
+      - @user.friendrequests.each do |freq|
+        - @frequser = User.find_by_username(freq.futurefriend)
+        %tr
+          %td= @frequser.last_name 
+          %td= @frequser.first_name
+          %td= submit_tag 'Decline', :name => "Decline[#{freq.id}]"
+          %td= submit_tag 'Accept', :name => "Accept[#{freq.id}]"
 
   %footer
     - if current_user.id == @user.id
