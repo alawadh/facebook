@@ -7,7 +7,6 @@ Facebook::Application.routes.draw do
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "log_in" => "sessions#new", :as => "log_in"
   get "sign_up" => "users#new", :as => "sign_up"
-  #get "search" => "users#search", :as => "search"
   resources :users, only: [:search, :results] do 
 	get 'search(.:format)', :controller => "users", :action => "search", :as => :search
 	post 'search(.:format)', :controller => "users", :action => "search", :as => :search
@@ -15,7 +14,9 @@ Facebook::Application.routes.draw do
   end
   #root :to => "users#new"
   resources :users do
-	resources :friends
+	resources :friends do
+	  #post 'new(.:format)', :controller => "friends", :action => "new", :as => :new
+	end
   end
   resources :sessions
   

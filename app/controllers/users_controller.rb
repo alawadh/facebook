@@ -25,6 +25,13 @@ class UsersController < ApplicationController
 		render "search"
 	  end
 	end
+	
+	if params[:Add]
+	  @user = User.find_by_id(((params["Add"]).first)[0])
+	  #flash.now.alert = @user.username
+	  current_user.friends.create(friend_username: @user.username)
+	  redirect_to user_path(current_user)
+	end
   end
 
   def login

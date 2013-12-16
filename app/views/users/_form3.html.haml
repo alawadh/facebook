@@ -10,15 +10,17 @@
         %th First name
         %th Last name
         %th Birthday
-        %th Interests
-        %th Quotes
+        %th Add friend
 
 
-      - @users.each do |user|
+      - @users.each do |uzer|
         %tr
-          %td= link_to user.username, user
-          %td= user.first_name
-          %td= user.last_name
-          %td= user.birthday
-          %td= user.interests
-          %td= user.quotes
+          %td= link_to uzer.username, uzer
+          %td= uzer.first_name
+          %td= uzer.last_name
+          %td= uzer.birthday
+          %td= submit_tag 'Add', :name => "Add[#{uzer.id}]"
+          
+				
+          
+          

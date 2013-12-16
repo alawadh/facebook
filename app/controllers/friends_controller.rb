@@ -25,11 +25,15 @@ class FriendsController < ApplicationController
   # GET /friends/new.json
   def new
     @friend = Friend.new
+    
+    if params[:add_button]
+		render "create"
+	end
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @friend }
-    end
+    #respond_to do |format|
+     # format.html # new.html.erb
+      #format.json { render json: @friend }
+    #end
   end
 
   # GET /friends/1/edit
@@ -40,12 +44,14 @@ class FriendsController < ApplicationController
   # POST /friends
   # POST /friends.json
   def create
+  #@current_user.friends.push(@friend)
     @user = User.find(params[:user_id])
     #@friend = Friend.new(params[:friend])
     @friend = @user.friend.create(params[:friend].permit(:friend_username))
 
-    respond_to do |format|
-      if @friend.save
+    #respond_to do |format|
+      #if @friend.save
+      if params[:add_button]
         format.html { redirect_to @friend, notice: 'Friend was successfully created.' }
         format.json { render json: @friend, status: :created, location: @friend }
       else
@@ -53,7 +59,6 @@ class FriendsController < ApplicationController
         format.json { render json: @friend.errors, status: :unprocessable_entity }
       end
     end
-  end
 
   # PUT /friends/1
   # PUT /friends/1.json
