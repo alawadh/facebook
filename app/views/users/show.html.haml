@@ -28,18 +28,26 @@
       %tr
         %td= @user.quotes
   
-  
+= form_tag user_path do  
   %table
+    %tr
+      %th First name
+      %th Last name
+      - if current_user.id == @user.id
+        %th Remove friend
+        
     - @user.friends.each do |fr|
       - @fuser = User.find_by_username(fr.friend_username)
       %tr
-        %td= @fuser.last_name
+        %td= @fuser.last_name 
         %td= @fuser.first_name
-      %tr
+        - if current_user.id == @user.id
+          %td= submit_tag 'Remove', :name => "Remove[#{fr.id}]"
         
 
   %footer
-    = link_to 'Edit', edit_user_path(@user)
+    - if current_user.id == @user.id
+      = link_to 'Edit', edit_user_path(@user)
     \|
     = link_to 'Back', users_path
 

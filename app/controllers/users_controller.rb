@@ -28,8 +28,8 @@ class UsersController < ApplicationController
 	
 	if params[:Add]
 	  @user = User.find_by_id(((params["Add"]).first)[0])
-	  #flash.now.alert = @user.username
-	  current_user.friends.create(friend_username: @user.username)
+	  #flash.now.alert = @user.id
+	  Friend.add(@user, current_user)
 	  redirect_to user_path(current_user)
 	end
   end
@@ -41,11 +41,18 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @user }
+	
+    #respond_to do |format|
+     # format.html # show.html.erb
+     # format.json { render json: @user }
+    #end
+    
+    if params[:Remove]
+	  @friend = Friend.find_by_id(((params["Remove"]).first)[0])
+	  Friend.remove(@friend, current_user)
+	  redirect_to user_path(params[:id])
     end
+    
   end
 
   # GET /users/new
