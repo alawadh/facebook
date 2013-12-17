@@ -10,6 +10,60 @@ class UsersController < ApplicationController
     end
   end
   
+  def newsfeed
+    @user = User.find(params[:id])
+    @data = Post.find(:all, :conditions => { :wall_id => current_user.id })
+    @user.friends.each do |fr|
+      @fruser = User.find_by_username(fr.friend_username)
+      @data += Post.find(:all, :conditions => { :wall_id => @fruser.id })
+    end
+    @posts = @data.sort_by {|apost| apost.date_time}.reverse
+  end
+  
+  def profile
+	@user = User.find(params[:id])
+	if @user == current_user
+	  @flag = 1
+	end
+	current_user.friends.each do |fr|
+	  if fr.friend_username == @user.username
+	    @flag = 1
+	  end
+	end
+	
+	@posts = Post.find(:all, :conditions => { :wall_id => params[:id] })
+	@posts = @posts.sort_by {|apost| apost.date_time}.reverse
+	
+	
+    if params[:Add]
+	  #@uzer = User.find_by_id(((params["Add"]).first)[0])
+	  #flash.now.alert = @user.id
+	  Friendrequest.sendreq(@user, current_user)
+	  #redirect_to user_path(current_user)
+	  flash.now.alert = 'Sent a friends request'
+	end
+	
+	if params[:submit_button]
+	  #@uzer = User.find_by_id(((params["Add"]).first)[0])
+	  #flash.now.alert = @user.id
+	  flash.now.alert = 'Posted'
+	  current_user.posts.create(:date_time => Time.now, :wall_id => params[:id], :wall_post => params[:wall_post])
+	  #redirect_to user_path(current_user)
+	  flash.now.alert = 'Posted'
+	  redirect_to user_profile_path(@user)
+	end
+	
+	if params[:clear_button]
+	  @posts = Post.find(:all, :conditions => { :wall_id => params[:id] })
+	  @posts.each do |apost|
+		Post.destroy(apost.id)
+	  end
+	  redirect_to user_profile_path(@user)
+	end
+	
+	    
+  end
+  
   def search
     #@users = User.find_by_last_name(params[:last_name])
     #@users = User.where(:lastname => params[:last_name])

@@ -25,10 +25,7 @@ user5 = User.create(username: 'jspurgeon', first_name: 'Justin', last_name: 'Spu
 user6 = User.create(username: 'malawadh', first_name: 'Maha', last_name: 'Alawadh', password: '2480', birthday: '25-Nov-2008', interests: 'Real Life', quotes: 'Ability will enable a man to get to the top, but character will keep him from falling') 
 
 
-user2.friends.create(friend_username: 'oalawadh')
 user3.friends.create(friend_username: 'oalawadh')
-
-user1.friends.create(friend_username: 'jghosh')
 user1.friends.create(friend_username: 'lhobbs')
 
 user1.friendrequests.create(futurefriend: 'jghosh')

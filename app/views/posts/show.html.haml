@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Date time:
+  = @post.date_time
+%p
+  %b Wall post:
+  = @post.wall_post
+%p
+  %b Wall:
+  = @post.wall_id
+%p
+  %b User:
+  = @post.user
+
+= link_to 'Edit', edit_post_path(@post)
+\|
+= link_to 'Back', posts_path

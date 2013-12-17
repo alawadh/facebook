@@ -2,8 +2,9 @@ class User < ActiveRecord::Base
   attr_accessible :birthday, :first_name, :interests, :last_name, :quotes, :username, :password, :password_confirmation
   
   attr_accessor :password
-  has_many :friends#, :controller => :friend
+  has_many :friends
   has_many :friendrequests
+  has_many :posts
   before_save :encrypt_password
   
   validates_confirmation_of :password

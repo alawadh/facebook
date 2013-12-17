@@ -1,0 +1,8 @@
+%h2 newsfeed: must contain links to all pages, I already implemented code to fetch (wall of user posts + friend posts)
+%h2 Don't forget to make all the names of the posters as hyperlinks to their profile page
+
+- @posts.each do |apost|
+  %table
+    %tr
+      %td=apost.user.username
+      %td=apost.wall_post

@@ -1,0 +1,25 @@
+%h1 Listing posts
+
+%table
+  %tr
+    %th Date time
+    %th Wall post
+    %th Wall
+    %th User
+    %th
+    %th
+    %th
+
+  - @posts.each do |post|
+    %tr
+      %td= post.date_time
+      %td= post.wall_post
+      %td= post.wall_id
+      %td= post.user
+      %td= link_to 'Show', post
+      %td= link_to 'Edit', edit_post_path(post)
+      %td= link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Post', new_post_path

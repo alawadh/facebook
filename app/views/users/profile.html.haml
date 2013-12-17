@@ -1,0 +1,9 @@
+%h2 form4 is loaded if the profile we're viewing is on the logged in user's friends, otherwise form 5 is loaded
+
+- if @flag
+  = render 'form4'
+- else
+  = render 'form5'
+  
+  
+  

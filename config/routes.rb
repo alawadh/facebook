@@ -2,8 +2,6 @@ Facebook::Application.routes.draw do
   
 
 
-
-  
   
 
 
@@ -11,15 +9,18 @@ Facebook::Application.routes.draw do
   get "log_in" => "sessions#new", :as => "log_in"
   get "sign_up" => "users#new", :as => "sign_up"
   post "users/:id(.:format)" => "users#show", :as => "user"
-  resources :users, only: [:search, :results] do 
+  get "users/:id/profile(.:format)" => "users#profile", :as => "user_profile"
+  post "users/:id/profile(.:format)" => "users#profile", :as => "user_profile"
+  get "users/:id/newsfeed(.:format)" => "users#newsfeed", :as => "user_newsfeed"
+  resources :users, only: [:search] do 
 	get 'search(.:format)', :controller => "users", :action => "search", :as => :search
 	post 'search(.:format)', :controller => "users", :action => "search", :as => :search
-	get 'results/:last_name(.:format)', :controller => "users", :action => "results", :as => :results
   end
   #root :to => "users#new"
   resources :users do
 	#post '', :controller => "users", :action => "show"
 	resources :friends
+	resources :posts
 	resources :friendrequests
 	  #post 'new(.:format)', :controller => "friends", :action => "new", :as => :new
   end
