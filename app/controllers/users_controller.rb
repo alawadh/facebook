@@ -29,9 +29,9 @@ class UsersController < ApplicationController
 	if params[:Add]
 	  @user = User.find_by_id(((params["Add"]).first)[0])
 	  #flash.now.alert = @user.id
-	  Friendrequest.send(@user, current_user)
-	  flash.now.alert = 'Sent a friends request'
+	  Friendrequest.sendreq(@user, current_user)
 	  redirect_to user_path(current_user)
+	  flash.now.alert = 'Sent a friends request'
 	end
   end
 
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
     #respond_to do |format|
      # format.html # show.html.erb
      # format.json { render json: @user }
-    #end
+    #ends
     
     if params[:Remove]
 	  @friend = Friend.find_by_id(((params["Remove"]).first)[0])

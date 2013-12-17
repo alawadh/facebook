@@ -1,8 +1,8 @@
 class Friendrequest < ActiveRecord::Base
   belongs_to :user
-  attr_accessible :futurefriend, :user, :friend_username
+  attr_accessible :futurefriend, :user
   
-  def self.send(fuser, current)
+  def self.sendreq(fuser, current)
 	fuser.friendrequests.create(futurefriend: current.username)
   end
   

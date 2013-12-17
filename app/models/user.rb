@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   attr_accessible :birthday, :first_name, :interests, :last_name, :quotes, :username, :password, :password_confirmation
   
   attr_accessor :password
-  has_many :friends
+  has_many :friends#, :controller => :friend
   has_many :friendrequests
   before_save :encrypt_password
   

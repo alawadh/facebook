@@ -53,12 +53,13 @@
         %th Decline
         
       - @user.friendrequests.each do |freq|
-        - @frequser = User.find_by_username(freq.futurefriend)
-        %tr
-          %td= @frequser.last_name 
-          %td= @frequser.first_name
-          %td= submit_tag 'Decline', :name => "Decline[#{freq.id}]"
-          %td= submit_tag 'Accept', :name => "Accept[#{freq.id}]"
+        - if freq.user.id == current_user.id
+          - @frequser = User.find_by_username(freq.futurefriend)
+          %tr
+            %td= @frequser.last_name 
+            %td= @frequser.first_name
+            %td= submit_tag 'Accept', :name => "Accept[#{freq.id}]"
+            %td= submit_tag 'Decline', :name => "Decline[#{freq.id}]"
 
   %footer
     - if current_user.id == @user.id
