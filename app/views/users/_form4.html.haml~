@@ -14,7 +14,7 @@
   - @posts.each do |apost|
     %table
       %tr
-        %td= link_to apost.user.username, "localhost:3001/users/#{apost.id}/profile"
+        %td=apost.user.username
         %td=apost.wall_post
 
 %footer

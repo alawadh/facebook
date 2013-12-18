@@ -9,7 +9,6 @@
       %th Username
       %th First name
       %th Last name
-      %th Password
       %th Birthday
       %th Interests
       %th Quotes
@@ -20,7 +19,6 @@
         %td= link_to user.username, user
         %td= user.first_name
         %td= user.last_name
-        %td= user.password
         %td= user.birthday
         %td= user.interests
         %td= user.quotes

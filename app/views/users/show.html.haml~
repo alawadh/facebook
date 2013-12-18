@@ -1,9 +1,16 @@
+%h2 This is the profile preferences page.
+%h2 The Profile Preferences view should allow the user to enter basic information in text 
+%h2 areas such as Interests and Quotes. Additionally, it should allow users to view their 
+%h2 friends (their names should be hyperlinks to their profile pages) as well as have the 
+%h2 option to de-friend individuals that they no longer wish to be friends with. This view 
+%h2 should also allow the user to clear off their entire wall. This view is also where users can 
+%h2 accept or deny friend requests.
 
 %p#notice= notice #only want when new user is created
 
 #profile
   #header
-    %h4 facebook
+    %h4= link_to 'facebook', user_newsfeed_path
   #prof_header
     %p
       %h1= "#{@user.first_name} #{@user.last_name}"
@@ -28,16 +35,47 @@
       %tr
         %td= @user.quotes
   
-  #friends
+= form_tag user_path do  
+  %table
+    %tr
+      %th First name
+      %th Last name
+      - if current_user.id == @user.id
+        %th Remove friend
+        
+    - @user.friends.each do |fr|
+      - @fuser = User.find_by_username(fr.friend_username)
+      %tr
+        %td= link_to @fuser.first_name, "#{fr.id}/profile"
+        %td= link_to @fuser.last_name, "#{fr.id}/profile"
+        - if current_user.id == @user.id
+          %td= submit_tag 'Remove', :name => "Remove[#{fr.id}]"
+          
+  - if current_user.id == @user.id        
     %table
       %tr
-        %td
-          %h2 Friends:
+        %th First name
+        %th Last name
+        %th Accept
+        %th Decline
+        
+      - @user.friendrequests.each do |freq|
+        - if freq.user.id == current_user.id
+          - @frequser = User.find_by_username(freq.futurefriend)
+          %tr
+            %td= @frequser.first_name 
+            %td= @frequser.last_name
+            %td= submit_tag 'Accept', :name => "Accept[#{freq.id}]"
+            %td= submit_tag 'Decline', :name => "Decline[#{freq.id}]"
 
-  
-  = link_to 'Edit', edit_user_path(@user)
-  \|
-  = link_to 'Back', users_path
+  - if @user == current_user
+    = submit_tag 'Clear Wall', :name => 'clear_button'
+
+  %footer
+    - if current_user.id == @user.id
+      = link_to 'Edit', edit_user_path(@user)
+    \|
+    = link_to 'Back', users_path
 
   
 

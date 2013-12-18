@@ -3,10 +3,10 @@
 %h4=link_to 'facebook', user_newsfeed_path
 
 #prof_header
-  %p
-    %h1= "#{@user.first_name} #{@user.last_name}"
-  %p
-    %h2.profile= "Username: #{@user.username}"
+    %p
+      %h1= "#{@user.first_name} #{@user.last_name}"
+    %p
+      %h2.profile= "Username: #{@user.username}"
 
 - if @flag
   = render 'form4'

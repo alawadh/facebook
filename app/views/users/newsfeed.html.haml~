@@ -11,4 +11,4 @@
 
 %p= link_to 'Profile Preferences', user_path
 
-%p= link_to 'Search for Friends', user_search_path
+

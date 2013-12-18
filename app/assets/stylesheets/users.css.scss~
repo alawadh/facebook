@@ -17,7 +17,7 @@
 table{
  background-color:#69F;
  border:1px solid black;
- width:20%;
+ 
 }
 #users table{
  text-align:center;

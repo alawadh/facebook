@@ -1,4 +1,4 @@
-%h4=link_to 'facebook', user_newsfeed_path
+
 
 %p "* search is case sensitive"
 

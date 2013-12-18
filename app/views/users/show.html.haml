@@ -10,7 +10,7 @@
 
 #profile
   #header
-    %h4 facebook
+    %h4= link_to 'facebook', user_newsfeed_path
   #prof_header
     %p
       %h1= "#{@user.first_name} #{@user.last_name}"
@@ -46,8 +46,8 @@
     - @user.friends.each do |fr|
       - @fuser = User.find_by_username(fr.friend_username)
       %tr
-        %td= @fuser.last_name 
-        %td= @fuser.first_name
+        %td= link_to @fuser.first_name, "#{fr.id}/profile"
+        %td= link_to @fuser.last_name, "#{fr.id}/profile"
         - if current_user.id == @user.id
           %td= submit_tag 'Remove', :name => "Remove[#{fr.id}]"
           
@@ -63,10 +63,13 @@
         - if freq.user.id == current_user.id
           - @frequser = User.find_by_username(freq.futurefriend)
           %tr
-            %td= @frequser.last_name 
-            %td= @frequser.first_name
+            %td= link_to @frequser.first_name, "#{freq.id}/profile"
+            %td= link_to @frequser.last_name, "#{freq.id}/profile"
             %td= submit_tag 'Accept', :name => "Accept[#{freq.id}]"
             %td= submit_tag 'Decline', :name => "Decline[#{freq.id}]"
+
+  - if @user == current_user
+    = submit_tag 'Clear Wall', :name => 'clear_button'
 
   %footer
     - if current_user.id == @user.id
