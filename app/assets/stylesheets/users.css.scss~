@@ -67,7 +67,7 @@ th {
 #posts .field, .action{
  text-align:center;
 }
-#posts #post_box{
+#post_box{
  text-align:center;
  background-color:#003;
 }
