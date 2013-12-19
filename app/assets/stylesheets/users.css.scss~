@@ -11,10 +11,18 @@
 }
 #prof_header, #user_header, #new_user_header, #login_header{
  background-color:#003;
- border-style:solid;
+ border-style:none;
  border-color: #003;
 }
+<<<<<<< HEAD
 
+=======
+table{
+ background-color:#003;
+ border:1px solid black;
+ 
+}
+>>>>>>> d299e787f14ce2ee72946ebe2c8fab5ca289dfb5
 #users table{
  text-align:center;
  border:1px solid black;
@@ -30,20 +38,24 @@ th {
  font-size: medium;
 }
 #user_info table{
- background-color:#69F;
+ background-color:#484848;
  border-style: solid;
+ border-width: 3px;
+ border-color: white;
  float:left;
- width: 34%;
+ width: 33%;
 }
 #friends table{
- background-color:#69F;
+ background-color:#484848;
  border-style: solid;
+ border-width: 3px;
+ border-color: white;
  float:right;
  width: 33%;
 }
 #friends h2{
  text-align:right;
- color:yellow;
+ color:white;
 }
 #requests table{
  align: center;
@@ -67,7 +79,7 @@ th {
 #posts .field, .action{
  text-align:center;
 }
-#post_box{
+#posts #post_box{
  text-align:center;
  background-color:#003;
 }
@@ -79,17 +91,18 @@ footer{
 }
 
 .field{
- color:#fff;
+ color:#FFF;
  text-align:left;
  font-size:large;
 }
 h1{
- color:#093;
- text-align:left;
+ color:white;
+ text-align:center;
 }
 h2{
  color:white;
  text-align: left;
+ font-size: medium;
 }
 h3{
  color:white;

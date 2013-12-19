@@ -9,10 +9,15 @@
 #profile, #users, #new_user, #login, #form{
  background-color:#003;
 }
-#prof_header, #user_header, #new_user_header, #login_header{
+#prof_header, #user_header, #new+_user_header, #login_header{
  background-color:#003;
- border-style:solid;
+ border-style:none;
  border-color: #003;
+}
+table{
+ background-color:#003;
+ border:1px solid black;
+ 
 }
 
 #users table{
@@ -30,20 +35,24 @@ th {
  font-size: medium;
 }
 #user_info table{
- background-color:#69F;
+ background-color:#484848;
  border-style: solid;
+ border-width: 3px;
+ border-color: white;
  float:left;
- width: 34%;
+ width: 33%;
 }
 #friends table{
- background-color:#69F;
+ background-color:#484848;
  border-style: solid;
+ border-width: 3px;
+ border-color: white;
  float:right;
  width: 33%;
 }
 #friends h2{
  text-align:right;
- color:yellow;
+ color:white;
 }
 #requests table{
  align: center;
@@ -79,17 +88,18 @@ footer{
 }
 
 .field{
- color:#fff;
+ color:#FFF;
  text-align:left;
  font-size:large;
 }
 h1{
- color:#093;
- text-align:left;
+ color:white;
+ text-align:center;
 }
 h2{
  color:white;
  text-align: left;
+ font-size: medium;
 }
 h3{
  color:white;
