@@ -12,7 +12,7 @@
 
       - @users.each do |uzer|
         %tr
-          %td= link_to uzer.username, "#{uzer.id}_profile_path"
+          %td= uzer.username
           %td= uzer.first_name
           %td= uzer.last_name
           %td= submit_tag 'Add', :name => "Add[#{uzer.id}]"

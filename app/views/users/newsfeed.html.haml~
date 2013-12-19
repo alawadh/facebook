@@ -3,10 +3,8 @@
 #posts
   %table{:align => "center", :width => "50%"}
     - @posts.each do |apost|
-      %tr
-        %td=link_to apost.user.username, "{#apost.user.id}/profile"
-      %tr
-        %td=apost.wall_post
+      %tr=link_to apost.user.username, "{#apost.user.id}/profile"
+      %tr=apost.wall_post
 
 %footer
   = link_to 'Profile Preferences', user_path
