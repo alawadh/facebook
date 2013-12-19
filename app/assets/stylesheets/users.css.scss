@@ -43,6 +43,7 @@ th {
  border-color: white;
  float:left;
  width: 33%;
+ padding: 3px;
 }
 
 #friends table{
@@ -53,6 +54,7 @@ th {
  float:right;
  width: 33%;
  text-align: center;
+ padding: 3px;
 }
 #friends h2{
  text-align:center;
@@ -65,6 +67,7 @@ th {
  border-color: white;
  background-color: #484848;
  width:33%;
+ padding: 3px;
 }
 #posts table{
  text-align: center;
@@ -73,10 +76,12 @@ th {
  background-color:#484848;
  border:3px solid white;
  padding: 4px 4px;
+ padding: 3px;
 }
 #posts td{
  text-align:left;
  color:black;
+ padding: 3px;
 }
 #posts a{
  color:orange;
