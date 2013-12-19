@@ -1,6 +1,6 @@
-%h4 facebook
+%h4=link_to 'facebook', user_newsfeed_path
 
-%p * search is case sensitive
+%p{:align => 'left'} * search is case sensitive
 
 = form_tag user_search_path do
 

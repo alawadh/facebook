@@ -1,6 +1,6 @@
 %h4=link_to 'facebook', user_newsfeed_path
 
-%p * search is case sensitive
+%p{:align => 'left'} * search is case sensitive
 
 = form_tag user_search_path do
 
@@ -15,3 +15,8 @@
     
   - if @users.length > 0
     = render 'form3'
+
+%footer
+  = link_to 'Profile Preferences', user_path(current_user)
+  \|
+  = link_to 'Newsfeed', user_newsfeed_path(current_user)
