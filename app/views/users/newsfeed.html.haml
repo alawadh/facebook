@@ -4,7 +4,7 @@
   %table{:align => "center", :width => "50%"}
     - @posts.each do |apost|
       %tr
-        %td=link_to apost.user.username, "{#apost.user.id}/profile"
+        %td=link_to apost.user.username, user_profile_path(apost.user)
       %tr
         %td=apost.wall_post
 
