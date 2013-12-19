@@ -53,6 +53,7 @@ th {
 #friends h2{
  text-align:center;
  color:white;
+ float: right;
 }
 #requests table{
  align: center;
