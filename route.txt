@@ -1,0 +1,44 @@
+                log_out GET    /log_out(.:format)                                sessions#destroy
+                 log_in GET    /log_in(.:format)                                 sessions#new
+                sign_up GET    /sign_up(.:format)                                users#new
+                   user POST   /users/:id(.:format)                              users#show
+           user_profile GET    /users/:id/profile(.:format)                      users#profile
+           user_profile POST   /users/:id/profile(.:format)                      users#profile
+          user_newsfeed GET    /users/:id/newsfeed(.:format)                     users#newsfeed
+            user_search GET    /users/:id/search(.:format)                       users#search
+            user_search POST   /users/:id/search(.:format)                       users#search
+           user_friends GET    /users/:user_id/friends(.:format)                 friends#index
+                        POST   /users/:user_id/friends(.:format)                 friends#create
+        new_user_friend GET    /users/:user_id/friends/new(.:format)             friends#new
+       edit_user_friend GET    /users/:user_id/friends/:id/edit(.:format)        friends#edit
+            user_friend GET    /users/:user_id/friends/:id(.:format)             friends#show
+                        PUT    /users/:user_id/friends/:id(.:format)             friends#update
+                        DELETE /users/:user_id/friends/:id(.:format)             friends#destroy
+             user_posts GET    /users/:user_id/posts(.:format)                   posts#index
+                        POST   /users/:user_id/posts(.:format)                   posts#create
+          new_user_post GET    /users/:user_id/posts/new(.:format)               posts#new
+         edit_user_post GET    /users/:user_id/posts/:id/edit(.:format)          posts#edit
+              user_post GET    /users/:user_id/posts/:id(.:format)               posts#show
+                        PUT    /users/:user_id/posts/:id(.:format)               posts#update
+                        DELETE /users/:user_id/posts/:id(.:format)               posts#destroy
+    user_friendrequests GET    /users/:user_id/friendrequests(.:format)          friendrequests#index
+                        POST   /users/:user_id/friendrequests(.:format)          friendrequests#create
+ new_user_friendrequest GET    /users/:user_id/friendrequests/new(.:format)      friendrequests#new
+edit_user_friendrequest GET    /users/:user_id/friendrequests/:id/edit(.:format) friendrequests#edit
+     user_friendrequest GET    /users/:user_id/friendrequests/:id(.:format)      friendrequests#show
+                        PUT    /users/:user_id/friendrequests/:id(.:format)      friendrequests#update
+                        DELETE /users/:user_id/friendrequests/:id(.:format)      friendrequests#destroy
+                  users GET    /users(.:format)                                  users#index
+                        POST   /users(.:format)                                  users#create
+               new_user GET    /users/new(.:format)                              users#new
+              edit_user GET    /users/:id/edit(.:format)                         users#edit
+                        GET    /users/:id(.:format)                              users#show
+                        PUT    /users/:id(.:format)                              users#update
+                        DELETE /users/:id(.:format)                              users#destroy
+               sessions GET    /sessions(.:format)                               sessions#index
+                        POST   /sessions(.:format)                               sessions#create
+            new_session GET    /sessions/new(.:format)                           sessions#new
+           edit_session GET    /sessions/:id/edit(.:format)                      sessions#edit
+                session GET    /sessions/:id(.:format)                           sessions#show
+                        PUT    /sessions/:id(.:format)                           sessions#update
+                        DELETE /sessions/:id(.:format)                           sessions#destroy

@@ -53,14 +53,6 @@ class UsersController < ApplicationController
 	  redirect_to user_profile_path(@user)
 	end
 	
-	if params[:clear_button]
-	  @posts = Post.find(:all, :conditions => { :wall_id => params[:id] })
-	  @posts.each do |apost|
-		Post.destroy(apost.id)
-	  end
-	  redirect_to user_profile_path(@user)
-	end
-	
 	    
   end
   
@@ -124,7 +116,14 @@ class UsersController < ApplicationController
 	  redirect_to user_path(params[:id])
 	end	
 		
-    
+    if params[:clear_button]
+	  @posts = Post.find(:all, :conditions => { :wall_id => current_user.id })
+	  @posts.each do |apost|
+		Post.destroy(apost.id)
+	  end
+	  redirect_to user_profile_path(@user)
+	end
+	
   end
 
   # GET /users/new
