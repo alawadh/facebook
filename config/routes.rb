@@ -1,9 +1,13 @@
 Facebook::Application.routes.draw do
   
-  #root :to => 'users#new', :as => 'sign_up'
-
+  
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "log_in" => "sessions#new", :as => "log_in"
+  
+  root :to => "sessions#new"
+  
+  #root :to => "sessions#new", :as=> "sessions"
+  #redirect('/log_in'), :controller => "sessions", :action => "new", :as => "sessions"
   get "sign_up" => "users#new", :as => "sign_up"
   post "users/:id(.:format)" => "users#show", :as => "user"
   get "users/:id/profile(.:format)" => "users#profile", :as => "user_profile"
@@ -24,6 +28,8 @@ Facebook::Application.routes.draw do
 	  #post 'new(.:format)', :controller => "friends", :action => "new", :as => :new
   end
   resources :sessions
+  
+  #root :to => redirect('/log_in')#, :controller => "sessions", :action => "new", :as => "sessions"
   
   
   #match "users/login(.:format)", :controller => "users", :action => "login", :via => [:get], :as => :login
