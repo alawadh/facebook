@@ -36,12 +36,9 @@
         - @user.friends.each do |fr|
           - @fuser = User.find_by_username(fr.friend_username)
           %tr
-            %td= link_to @fuser.first_name, "#{fr.id}/profile"
-            %td= link_to @fuser.last_name, "#{fr.id}/profile"
+            %td= link_to @fuser.first_name, user_profile_path(fuser)
+            %td= link_to @fuser.last_name, user_profile_path(fuser)
 
-
-  %br
-  %br
   = render 'form4'  
 
 
