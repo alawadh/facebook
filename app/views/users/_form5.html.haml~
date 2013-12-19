@@ -1,7 +1,0 @@
-%td= @user.first_name
-%td= @user.last_name
-
-= form_tag user_profile_path do
-  %td= submit_tag 'Add' => "Add[#{@user.id}]"
-
-

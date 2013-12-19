@@ -9,11 +9,12 @@ Facebook::Application.routes.draw do
   get "users/:id/profile(.:format)" => "users#profile", :as => "user_profile"
   post "users/:id/profile(.:format)" => "users#profile", :as => "user_profile"
   get "users/:id/newsfeed(.:format)" => "users#newsfeed", :as => "user_newsfeed"
-  #get "users/:id/search(.:format)" => "users#search", :as => "user_search"
-  resources :users, only: [:search] do 
-	get 'search(.:format)', :controller => "users", :action => "search", :as => :search
-	post 'search(.:format)', :controller => "users", :action => "search", :as => :search
-  end
+  get "users/:id/search(.:format)" => "users#search", :as => "user_search"
+  post "users/:id/search(.:format)" => "users#search", :as => "user_search"
+  #resources :users, only: [:search] do 
+	#get 'search(.:format)', :controller => "users", :action => "search", :as => :search
+	#post 'search(.:format)', :controller => "users", :action => "search", :as => :search
+  #end
   #root :to => "users#new"
   resources :users do
 	#post '', :controller => "users", :action => "show"
