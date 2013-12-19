@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   
   def newsfeed
     @user = User.find(params[:id])
-    @data = Post.find(:all, :conditions => { :wall_id => current_user.id })
+    @data = Post.find(:all, :conditions => { :wall_id => @user.id })
     @user.friends.each do |fr|
       @fruser = User.find_by_username(fr.friend_username)
       @data += Post.find(:all, :conditions => { :wall_id => @fruser.id })
