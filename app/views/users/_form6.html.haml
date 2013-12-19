@@ -67,4 +67,6 @@
   - if current_user.id == @user.id
     = link_to 'Edit', edit_user_path(@user)
   \|
-  = link_to 'To Newsfeed', user_newsfeed_path(current_user)
+  = link_to 'Newsfeed', user_newsfeed_path(current_user)
+  \|
+  = link_to 'Search for Friends', user_search_path(current_user)

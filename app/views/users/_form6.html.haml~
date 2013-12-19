@@ -53,8 +53,8 @@
         - @user.friendrequests.each do |freq|
           - @frequser = User.find_by_username(freq.futurefriend)
           %tr
-            %td= link_to @frequser.first_name, user_profile_path(frequser)
-            %td= link_to @frequser.last_name, user_profile_path(frequser)
+            %td= link_to @frequser.first_name, user_profile_path(@frequser)
+            %td= link_to @frequser.last_name, user_profile_path(@frequser)
             %td= submit_tag 'Accept', :name => "Accept[#{freq.id}]"
             %td= submit_tag 'Decline', :name => "Decline[#{freq.id}]"
 
@@ -68,3 +68,5 @@
     = link_to 'Edit', edit_user_path(@user)
   \|
   = link_to 'To Newsfeed', user_newsfeed_path(current_user)
+  \|
+  = link_to 'Search for Friends', user_search_path(current_user)
