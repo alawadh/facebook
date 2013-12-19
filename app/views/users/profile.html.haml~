@@ -39,6 +39,9 @@
             %td= link_to @fuser.first_name, "#{fr.id}/profile"
             %td= link_to @fuser.last_name, "#{fr.id}/profile"
 
+
+  %br
+  %br
   = render 'form4'  
 
 

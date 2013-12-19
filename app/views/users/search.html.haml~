@@ -6,7 +6,7 @@
 
   .field
     = label_tag :last_name
-    = text_field_tag :last_name, params[:last_name.downcase]
+    = text_field_tag :last_name, params[:last_name]
     
   .actions
     = submit_tag 'Search', :name => 'search_button'

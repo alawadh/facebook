@@ -5,6 +5,7 @@
     - @posts.each do |apost|
       %tr
         %td=link_to apost.user.username, "{#apost.user.id}/profile"
+      %tr
         %td=apost.wall_post
 
 %footer
