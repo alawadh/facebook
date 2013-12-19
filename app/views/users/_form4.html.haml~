@@ -8,11 +8,12 @@
 
         %td.actions
           = submit_tag 'Submit', :name => 'submit_button'
-    
+    %br
+    %br
     %table
       - @posts.each do |apost|     
         %tr
-          %td= link_to apost.user.username, "localhost:3001/users/#{apost.id}/profile"
+          %td= link_to apost.user.username, user_profile_path(@apsot.user)
         %tr
           %td=apost.wall_post
 
