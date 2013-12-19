@@ -1,19 +1,56 @@
-%h2 form4 is loaded if the profile we're viewing is on the logged in user's friends, otherwise form 5 is loaded
-
 %h4=link_to 'facebook', user_newsfeed_path
 
 #prof_header
-    %p
-      %h1= "#{@user.first_name} #{@user.last_name}"
-    %p
-      %h2.profile= "Username: #{@user.username}"
+  %p
+    %h1= "#{@user.first_name} #{@user.last_name}"
+  %p
+    %h2.profile= "Username: #{@user.username}"
 
 - if @flag
-  = render 'form4'
+  
+  #user_info
+    %table
+      %tr
+        %td
+          %h2= "Birthday: #{@user.birthday}"
+      %tr
+        %td
+          %h2 Interests:
+      %tr
+        %td= @user.interests
+      %tr
+        %td
+          %h2 Quotes:
+      %tr
+        %td= @user.quotes
+
+  = form_tag user_path do 
+    #friends 
+      %h2 Friends
+      %table
+        %tr
+          %th First name
+          %th Last name
+          - if current_user.id == @user.id
+            %th Remove friend
+        
+        - @user.friends.each do |fr|
+          - @fuser = User.find_by_username(fr.friend_username)
+          %tr
+            %td= link_to @fuser.first_name, "#{fr.id}/profile"
+            %td= link_to @fuser.last_name, "#{fr.id}/profile"
+            - if current_user.id == @user.id
+              %td= submit_tag 'Remove', :name => "Remove[#{fr.id}]"
+
+  = render 'form4'  
+
+
 - else
   = render 'form5'
   
 %footer
   - if current_user.id == @user.id
     = link_to 'Profile Preferences', user_path
+    \|
+    = link_to 'Edit', edit_user_path(@user)
   

@@ -1,22 +1,16 @@
-%h2 The Profile Page view should display information about the user, as well as contain a Wall where the user or friends 
-%h2 can post information as well as read the contents of the wall. Remember, the users’	names who wrote on the wall 
-%h2 should all be hyperlinks to their profile pages. This content should not be viewable by users who are not in the 
-%h2 person’s social network.
-
 = form_tag user_profile_path do
+  
+  #posts
+    .field
+      = text_area_tag :wall_post,params[:wall_post], :cols => "25", :rows => "3"
 
-  .field
-    = text_area_tag :wall_post,params[:wall_post], :cols => "100", :rows => "20"
+    .actions
+      = submit_tag 'Submit', :name => 'submit_button'
     
-  .actions
-    = submit_tag 'Submit', :name => 'submit_button'
-    
-  - @posts.each do |apost|
     %table
-      %tr
-        %td= link_to apost.user.username, "localhost:3001/users/#{apost.id}/profile"
-        %td=apost.wall_post
+      - @posts.each do |apost|     
+        %tr
+          %td= link_to apost.user.username, "localhost:3001/users/#{apost.id}/profile"
+          %td=apost.wall_post
 
-%footer
-  - if current_user.id == @user.id
-    = link_to 'Edit', edit_user_path(@user)
+

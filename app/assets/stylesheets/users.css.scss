@@ -36,19 +36,38 @@ th {
  background-color:#69F;
  border-style: solid;
  float:left;
+ width: 34%;
 }
 #friends table{
  background-color:#69F;
  border-style: solid;
  float:right;
-
+ width: 33%;
+}
+#friends h2{
+ text-align:right;
+ color:yellow;
+}
+#requests table{
+ align: center;
+ width:33%;
+}
+#posts table{
+ text-align: center;
+ align:center;
+ width: 33%;
+}
+#posts .field, .action{
+ text-align:center;
+}
+#posts{
+ 
 }
 footer{
  text-color:white;
  align: left;
  position:absolute;
  bottom: 0px;
-
 }
 
 .field{

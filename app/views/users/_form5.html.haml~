@@ -1,12 +1,7 @@
-%h2 If a user that is not in the user’s social network attempts to view 
-%h2 the user’s Profile Page it should default to simply the user’s name, with a button to send a friend request.
-
 %td= @user.first_name
 %td= @user.last_name
 
 = form_tag user_profile_path do
-  %td= submit_tag 'Add', :name => "Add[#{@user.id}]"
+  %td= submit_tag 'Add' => "Add[#{@user.id}]"
 
-%footer
-  - if current_user.id == @user.id
-    = link_to 'Edit', edit_user_path(@user)
+

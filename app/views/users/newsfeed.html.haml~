@@ -1,14 +1,14 @@
-%h2 newsfeed: must contain links to all pages, I already implemented code to fetch (wall of user posts + friend posts)
-%h2 Don't forget to make all the names of the posters as hyperlinks to their profile page
+%h4 facebook
 
-%h4= link_to 'facebook', user_newsfeed_path
+#posts
+  %table{:align => "center", :width => "50%"}
+    - @posts.each do |apost|
+      %tr
+        %td=link_to apost.user.username, "{#apost.user.id}/profile"
+        %td=apost.wall_post
 
-- @posts.each do |apost|
-  %table
-    %tr
-      %td=link_to apost.user.username, "{#apost.user.id}/profile"
-      %td=apost.wall_post
-
-%p= link_to 'Profile Preferences', user_path
+%footer
+  = link_to 'Profile Preferences', user_path
+  = link_to 'Search for Friends', "/search"
 
 
